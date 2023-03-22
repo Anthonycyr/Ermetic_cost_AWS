@@ -5,4 +5,4 @@ def list_instances():
     client = boto3.client('ec2')
 
     response = client.describe_instances()
-    return response
+    print(response)
