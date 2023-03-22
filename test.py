@@ -6,3 +6,5 @@ def list_instances():
 
     response = client.describe_instances()
     print(response)
+
+list_instances()
