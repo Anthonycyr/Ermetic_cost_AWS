@@ -14,6 +14,18 @@ def list_instances():
 
 list_instances()
 
+#ECS with Fargate
+def list_ecs_instances_with_fargate():
+    nb_ecs_fargate = 0
+    client = boto3.client('ecs')
+    tasks = client.list_task_definitions(status='ACTIVE')
+    
+    for task in tasks['taskDefinitionArns']:
+        nb_ecs_fargate += 1
+    print('ECS task using Fargate:', nb_ecs_fargate)
+
+list_ecs_instances_with_fargate()
+
 # Lambda
 
 def list_lambda():
@@ -41,15 +53,5 @@ list_lambda()
 
 # list_ecs_instances_with_ec2()
 
-# #ECS with Fargate unTested
-# def list_ecs_instances_with_ec2():
-#     nb_ecs_fargate = 0
-#     client = boto3.client('ecs')
-#     instances = client.list_services(launchType='FARGATE')
-    
-#     for instance in instances['Reservations']:
-#         nb_ecs_fargate += 1
-#     print('ECS using Fargate:', nb_ecs_fargate)
 
-# list_ecs_instances_with_ec2()
 
