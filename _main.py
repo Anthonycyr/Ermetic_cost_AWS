@@ -14,10 +14,27 @@ def list_instances():
 
 list_instances()
 
-def list_ecs_instances_with_ec2():
 
-    client = boto3.client('ecs')
-    instances = client.list_services(launchType='EC2')
-    print('ecs:', instances)
+# #ECS with EC2 unTested
+# def list_ecs_instances_with_ec2():
+#     nb_ecs_ec2 = 0
+#     client = boto3.client('ecs')
+#     instances = client.list_services(launchType='EC2')
+    
+#     for instance in instances['Reservations']:
+#         nb_ecs_ec2 += 1
+#     print('ECS using EC2:', nb_ecs_ec2)
 
-list_ecs_instances_with_ec2()
+# list_ecs_instances_with_ec2()
+
+# #ECS with Fargate unTested
+# def list_ecs_instances_with_ec2():
+#     nb_ecs_fargate = 0
+#     client = boto3.client('ecs')
+#     instances = client.list_services(launchType='FARGATE')
+    
+#     for instance in instances['Reservations']:
+#         nb_ecs_fargate += 1
+#     print('ECS using Fargate:', nb_ecs_fargate)
+
+# list_ecs_instances_with_ec2()
