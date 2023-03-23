@@ -14,6 +14,20 @@ def list_instances():
 
 list_instances()
 
+# Lambda
+
+def list_lambda():
+    nb_lambda = 0
+    client = boto3.client('lambda')
+    functions = client.list_functions()
+    for function in functions['Functions']:
+        nb_lambda += 1
+    print('Lambda number:',nb_lambda)
+
+list_lambda()
+
+
+
 
 # #ECS with EC2 unTested
 # def list_ecs_instances_with_ec2():
@@ -38,3 +52,4 @@ list_instances()
 #     print('ECS using Fargate:', nb_ecs_fargate)
 
 # list_ecs_instances_with_ec2()
+
