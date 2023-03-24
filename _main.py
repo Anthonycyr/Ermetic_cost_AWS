@@ -6,11 +6,11 @@ def list_instances():
     client = boto3.client('ec2')
 
     instances = client.describe_instances(Filters=[{
-        # 'Name' :'instance-state-name', 'Values': ["running"]
+        'Name' :'instance-state-name', 'Values': ["running"]
         }])
     for instance in instances['Reservations']:
         nb_ec2 += 1
-    print('EC2 number:', nb_ec2)
+    print('EC2 instance running:', nb_ec2)
 
 list_instances()
 
@@ -22,7 +22,7 @@ def list_ecs_instances_with_fargate():
     
     for task in tasks['taskDefinitionArns']:
         nb_ecs_fargate += 1
-    print('ECS task using Fargate:', nb_ecs_fargate)
+    print('ECS active task using Fargate:', nb_ecs_fargate)
 
 list_ecs_instances_with_fargate()
 
